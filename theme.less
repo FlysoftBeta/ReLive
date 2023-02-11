@@ -123,6 +123,11 @@
         }
     }
 
+    // remove ncm's default open animation
+    .m-player, .m-player .spk.z-silence:after, .m-pinfo .info-new {
+        transition: none !important;
+    }
+
     // Play info
     .m-pinfo{
         bottom: calc(@main-player-height - 3 * @main-player-margin);
