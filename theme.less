@@ -38,6 +38,18 @@
     .bg{
         background: transparent !important;
     }
+
+    // remove white backgrounds
+    .m-timeline .m-dtool,.g-setHd,.g-sd-set,.g-mn-set,.m-uinfo{
+        background: transparent !important;
+    }
+
+    // 
+    :root {
+        --icnTheme: #000;
+        --themeC1: #000;
+        --themeC1-rgb: 0,0,0;
+    }
 }
 
 .header-mixin(){
@@ -48,6 +60,9 @@
     .m-leftbox{
         left: 0 !important;
         .m-topbox{
+            .mq-playing & {
+                visibility: hidden;
+            }
             .m-hst > *,.m-sch > input,.j-listentosong > a{
                 background: transparent !important;
                 border-radius: 0 !important;
@@ -480,7 +495,3 @@
     }
 }
 
-// Remove white backgrounds
-.m-timeline .m-dtool,.g-setHd,.g-sd-set,.g-mn-set,.m-uinfo{
-    background: none !important;
-}
