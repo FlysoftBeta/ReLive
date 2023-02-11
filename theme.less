@@ -461,12 +461,13 @@
                 display: block;
                 overflow: visible;
                 &.loved{
-                    transform: translateY(-8px);
+                    svg{
+                        display:block !important;
+                    }
                 }
                 &::before{
-                    width: 38px !important;
-                    clip-path: polygon(50% 100%, 0 33%, 27% 10%, 50% 19%, 73% 10%, 100% 33%);
-                    -webkit-mask-image: none !important;
+                    display:none !important;
+                    
                 }
            }
         }
