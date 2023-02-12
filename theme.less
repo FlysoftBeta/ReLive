@@ -607,7 +607,13 @@
                 align-items: center;
                 justify-content: center;
                 &.js-selected {
-                    color: #ffffff;
+                    background: var(--rnp-accent-color-shade-2);
+                    color: #000000;
+
+                    .rnp-light &,
+                    .rnp-auto.rnp-system-light & {
+                        color: #ffffff;
+                    }
                 }
             }
         }
