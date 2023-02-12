@@ -4,6 +4,9 @@
     "slug": "relive-theme",
     "version": "0.2.3",
     "author": "Flysoft",
+    "author_links": [
+        "https://github.com/FlysoftBeta"
+    ],
     "description": "ReLive 主题 | 修改自 Ark Theme",
     "betterncm_version": "^1.0.0",
     "preview": "preview.gif",
