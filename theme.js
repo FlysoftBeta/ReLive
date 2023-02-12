@@ -33,16 +33,34 @@ plugin.onAllPluginsLoaded(async function (plugins) {
 
     plugins.StyleSnippet.addExternalSnippet(
         await betterncm.fs.readFileText(this.pluginPath + "./theme.less"),
-        "ArkTheme",
-        "ark-theme-release"
+        "ReLiveTheme",
+        "relive-theme"
     );
 
-    window.localStorage.setItem("refined-now-playing-hide-comments", "true");
-});
+    let isDark = JSON.parse(window.localStorage.getItem("relive-theme-dark") || "false");
 
-betterncm.utils.waitForElement(".m-tool > .skin").then((item) => {
-    item.onclick = (e) => {
-        e.stopPropagation();
-        alert(1);
-    };
+    function loadDark() {
+        if (isDark) {
+            document.body.classList.add("s-theme-white");
+            document.querySelector("#skin_default").href = undefined;
+            document.querySelector("#pri-skin-gride").href =
+                "orpheus://skin/default/default/web/css/skin.ls.css";
+        } else {
+            document.body.classList.remove("s-theme-white");
+            document.querySelector("#skin_default").href =
+                "../../style/res/less/default/css/skin.ls.css";
+            document.querySelector("#pri-skin-gride").href =
+                "orpheus://skin/pub/web/css/skin.ls.css";
+        }
+    }
+
+    loadDark();
+
+    betterncm.utils.waitForElement(".m-tool > .skin").then((item) => {
+        item.addEventListener("click", (e) => {
+            isDark = !isDark;
+            window.localStorage.setItem("relive-theme-dark", JSON.stringify(isDark));
+            loadDark();
+        });
+    });
 });
