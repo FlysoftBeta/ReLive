@@ -63,4 +63,9 @@ plugin.onAllPluginsLoaded(async function (plugins) {
             loadDark();
         });
     });
+
+    document.addEventListener("fullscreenchange", () => {
+        if (document.fullscreenElement) document.body.classList.add("fullscreen");
+        else document.body.classList.remove("fullscreen");
+    });
 });
