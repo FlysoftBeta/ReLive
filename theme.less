@@ -581,26 +581,37 @@
         }
     }
 
-    .f-cb {
-        // Comments
+    .g-bd2 {
+        // Comments and suggestions
         margin: 0;
         width: 100%;
         max-width: none;
+        display: flex;
+        flex-direction: column-reverse;
+        padding-top: 100px;
 
-        .g-sd2 {
-            display: none;
-        }
-
+        .g-sd2,
         .m-comment {
+            float: left;
             max-width: 100%;
-            padding: 50px;
+            padding: 10px 50px;
             margin: 0 !important;
-            margin-left: calc(@main-player-width + @main-player-left + 100px) !important;
+            margin-left: calc(@main-player-width + @main-player-left) !important;
             margin-right: 50px;
 
-            .m-page > a.js-selected {
-                color: #ffffff;
+            .m-page > a {
+                display: inline-flex;
+                flex-direction: row;
+                align-items: center;
+                justify-content: center;
+                &.js-selected {
+                    color: #ffffff;
+                }
             }
+        }
+
+        .g-sd2 {
+            width: max-content;
         }
 
         .recommend-btn {
