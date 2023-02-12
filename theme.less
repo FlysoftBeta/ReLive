@@ -1,24 +1,20 @@
 .main-player-mixin();
 .tweaks-mixin();
-.pages-mixins();
 .header-mixin();
 .rnp-settings-mixin();
 .menu-mixin();
+.sidebar-mixin();
+.playlist-list-mixin();
+.play-page-playbar-mixin();
+.g-mn {
+    .playlist-page-mixin();
+    .main-page-mixin();
+}
+.g-single {
+    .play-page-mixin();
+}
 @main-player-left: 7%;
 @main-player-width: clamp(200px, 25%, 500px);
-
-.pages-mixins {
-    .g-mn {
-        .playlist-page-mixin();
-        .main-page-mixin();
-    }
-
-    .g-single {
-        .play-page-mixin();
-    }
-    .playlist-list-mixin();
-    .play-page-playbar-mixin();
-}
 
 .menu-mixin() {
     div.m-layer {
@@ -106,8 +102,14 @@
     }
 
     .g-sd {
-        background: none;
-        backdrop-filter: blur(10px);
+        border-top-right-radius: 8px;
+        background-color: transparent;
+        transition: background-color 0.3s ease, backdrop-filter 0.3s ease;
+
+        &:hover {
+            background-color: var(--layer-background);
+            backdrop-filter: blur(var(--layer-blur));
+        }
     }
 
     .m-skswitch {
@@ -770,6 +772,8 @@
         }
 
         &:not(:hover) {
+            border-color: transparent !important;
+
             ul a {
                 padding-left: 50px !important;
             }
@@ -822,7 +826,6 @@
     }
 
     @nav-size: 55px;
-    @nav-size-expanded: 200px;
     @nav-anim-time: 0.2s;
 
     .g-mn,
@@ -838,6 +841,7 @@
         transition: width @nav-anim-time;
 
         h2 {
+            display: none;
             word-break: keep-all;
             width: 100%;
             -webkit-mask-image: linear-gradient(90deg, black, transparent);
@@ -860,7 +864,6 @@
 
         li.z-sel {
             transition: width @nav-anim-time;
-            width: calc(@nav-size-expanded - 10px);
         }
 
         ul.sys.firstlist a {
@@ -904,7 +907,6 @@
             .newlist {
                 opacity: 1;
             }
-            width: @nav-size-expanded;
             a {
                 font-size: auto;
             }
