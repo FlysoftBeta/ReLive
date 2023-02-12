@@ -9,6 +9,7 @@
     "preview": "preview.gif",
     "type": "theme",
     "requirements": ["RefinedNowPlaying", "StyleSnippet"],
+    "incompatible": ["Apple-Musiclike-lyrics", "MaterialYouTheme"],
     "injects": {
         "Main": [
             {
