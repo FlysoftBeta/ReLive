@@ -17,8 +17,8 @@
 @main-player-width: clamp(200px, 25%, 500px);
 
 .menu-mixin() {
-    .m-layer,
-    .m-card {
+    .m-layer:not(.m-layer *),
+    .m-card:not(.m-card *) {
         background: var(--layer-background);
         backdrop-filter: blur(20px);
         &.m-card-arrow-left::before,
@@ -28,7 +28,7 @@
         }
         .lyct,
         .zcnt {
-            background: none;
+            background: none !important;
         }
         * {
             color: rgb(0, 0, 0) !important;
