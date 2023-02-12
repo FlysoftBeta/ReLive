@@ -17,9 +17,15 @@
 @main-player-width: clamp(200px, 25%, 500px);
 
 .menu-mixin() {
-    div.m-layer {
+    .m-layer,
+    .m-card {
         background: var(--layer-background);
         backdrop-filter: blur(20px);
+        &.m-card-arrow-left::before,
+        &.m-card-arrow-right::before {
+            border-color: var(--layer-background) transparent transparent
+                var(--layer-background);
+        }
         .lyct,
         .zcnt {
             background: none;
@@ -35,6 +41,13 @@
                     color: rgb(0, 0, 0) !important;
                 }
             }
+            &.u-ibtn1,
+            &.u-ibtn5 {
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                border-radius: 5px;
+            }
         }
     }
     div.m-card-sharecard li:hover {
@@ -43,6 +56,8 @@
             background: rgba(255, 255, 255, 0.1);
         }
     }
+    .m-layer,
+    .m-card,
     .sltwrap,
     .u-arrlay,
     div.u-arrlay {
