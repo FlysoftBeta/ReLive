@@ -339,6 +339,12 @@
         bottom: calc(@main-player-height - 3 * @main-player-margin);
         margin: @main-player-margin calc(50% - @main-player-max-width / 2);
         max-width: 20em;
+        pointer-events: none;
+
+        h3 > *,
+        .j-title {
+            pointer-events: auto;
+        }
         // Cover
         .pic,
         .cover,
@@ -775,6 +781,7 @@
         width: @main-player-width;
         max-width: none;
         .oper {
+            pointer-events: auto;
             top: 10px;
         }
 
