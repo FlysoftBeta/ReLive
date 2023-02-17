@@ -496,7 +496,9 @@
     }
 
     .btns,
-    .hd.g-wrap5 {
+    .buttons,
+    .hd.g-wrap5,
+    .m-search .oper {
         & > *:nth-child(1) {
             .firstbtn();
         }
@@ -506,6 +508,8 @@
     }
 
     .btns,
+    .buttons,
+    .m-search .oper,
     .hd,
     .hd > *,
     .head {
@@ -524,18 +528,25 @@
             }
         }
     }
-    .btns {
+    .btns,
+    .buttons,
+    .m-search .oper {
         display: flex;
         overflow: hidden;
         align-items: stretch;
         flex-direction: column;
         width: max-content;
         border-radius: 6px;
+        padding: 0;
         .u-ibtn5b,
         button {
             border-radius: 0 !important;
             width: 100% !important;
         }
+    }
+    .m-search .oper {
+        padding: 0;
+        margin: 15px 20px;
     }
 
     .inf,
