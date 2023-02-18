@@ -589,10 +589,6 @@
 .play-page-mixin() {
     height: 100%;
 
-    .n-single {
-        margin-top: -20px;
-    }
-
     .cdwrap,
     .cdin,
     .cdimg {
@@ -602,7 +598,7 @@
     .content {
         // backdrop-filter: blur(10px);
         // background: linear-gradient(transparent, rgba(255, 255, 255, 0.425));
-        transform: translateY(0%);
+        transform: none;
         max-width: @main-player-width;
         background: none;
         left: @main-player-left;
@@ -611,6 +607,7 @@
         bottom: 0px;
         height: auto !important;
         justify-content: center;
+        width: 100%;
 
         .sd {
             margin-left: 25px !important;
@@ -668,8 +665,14 @@
         max-width: none;
         display: flex;
         flex-direction: column-reverse;
-        padding-top: 100px;
         pointer-events: none;
+
+        .g-mn2c > .j-flag {
+            display: flex;
+            .m-comment {
+                flex: 1;
+            }
+        }
 
         .g-sd2,
         .m-comment {
@@ -704,6 +707,48 @@
 
         .recommend-btn {
             display: none;
+        }
+    }
+
+    // Program
+    .g-single-program {
+        max-height: none;
+
+        .wrap {
+            position: static;
+            max-width: none !important;
+        }
+        .content {
+            margin: 0;
+            position: static;
+            max-width: none !important;
+            left: 0;
+
+            .sd {
+                margin: 0;
+                position: fixed;
+                left: @main-player-left;
+                max-width: calc(@main-player-width - 25px);
+                top: 30%;
+            }
+
+            .mn {
+                max-width: none !important;
+                width: auto !important;
+                flex: 1;
+                margin-top: 50px;
+                margin-right: 5%;
+                margin-left: calc(
+                    @main-player-left + @main-player-width + 50px
+                ) !important;
+
+                .head {
+                    display: none;
+                }
+            }
+        }
+        .g-bd2 {
+            padding-top: 0px !important;
         }
     }
 }
