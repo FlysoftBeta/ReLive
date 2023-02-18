@@ -171,10 +171,14 @@
     body.rnp-auto.rnp-system-light.mq-playing {
         .s-fc4,
         a.s-fc4.z-nohvr:hover {
-            color: rgba(0, 0, 0, 0.4);
+            &:not(.rnp-settings-menu *) {
+                color: rgba(0, 0, 0, 0.4);
+            }
         }
         .s-fc3 {
-            color: rgba(0, 0, 0, 0.6);
+            &:not(.rnp-settings-menu *) {
+                color: rgba(0, 0, 0, 0.6);
+            }
         }
         .n-single .head .title,
         .s-fc1,
@@ -187,18 +191,26 @@
         keygen,
         legend,
         & {
-            color: rgba(0, 0, 0, 0.8);
+            &:not(.rnp-settings-menu *) {
+                color: rgba(0, 0, 0, 0.8);
+            }
         }
         .n-single .head .detail svg,
         .u-ibtn5-inplay svg,
         .u-ibtn5 svg {
-            fill: rgba(0, 0, 0, 0.8);
+            &:not(.rnp-settings-menu *) {
+                fill: rgba(0, 0, 0, 0.8);
+            }
         }
         .g-single-program .n-single .mn .program-recommend {
-            border-top: 1px solid rgba(0, 0, 0, 0.2);
+            &:not(.rnp-settings-menu *) {
+                border-top: 1px solid rgba(0, 0, 0, 0.2);
+            }
         }
         .u-ibtn5 {
-            border-color: rgba(0, 0, 0, 0.2);
+            &:not(.rnp-settings-menu *) {
+                border-color: rgba(0, 0, 0, 0.2);
+            }
         }
     }
 
