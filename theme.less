@@ -650,6 +650,12 @@
         border-radius: 5px !important;
     }
 
+    .lyric {
+        .lyric-only & {
+            bottom: clamp(100px, 10%, 150px);
+        }
+    }
+
     .content {
         // backdrop-filter: blur(10px);
         // background: linear-gradient(transparent, rgba(255, 255, 255, 0.425));
@@ -814,9 +820,17 @@
         box-shadow: unset !important;
         backdrop-filter: unset !important;
         width: @main-player-width;
+        max-width: none;
         margin: -10px 0 0 @main-player-left;
         bottom: 8%;
         background: none !important;
+
+        .lyric-only & {
+            left: 50%;
+            transform: translateX(-50%);
+            margin: 0;
+            bottom: 0;
+        }
 
         & > *:not(.btnc):not(.btnp):not(.prg):not(.prg-spk) {
             display: none;
@@ -831,6 +845,10 @@
                 position: absolute;
                 height: 105px;
                 top: -45vh;
+
+                .lyric-only & {
+                    left: -34vw;
+                }
 
                 *,
                 *:not(.track):not(.has)::before {
@@ -896,6 +914,10 @@
         .oper {
             pointer-events: auto;
             top: 10px;
+
+            .lyric-only & {
+                visibility: hidden;
+            }
         }
 
         overflow: visible;
