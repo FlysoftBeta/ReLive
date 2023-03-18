@@ -9,7 +9,7 @@
     "betterncm_version": "^1.0.0",
     "preview": "preview.gif",
     "type": "theme",
-    "requirements": ["RefinedNowPlaying", "StyleSnippet"],
+    "requirements": ["RefinedNowPlaying", "StyleSnippet", "list-scroll-fix"],
     "injects": {
         "Main": [
             {
