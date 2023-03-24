@@ -1,14 +1,15 @@
-const FORCE_SETTINGS = {
-    "refined-now-playing-refined-control-bar": "false",
-};
+let styleSnippetConfig = JSON.parse(
+    window.localStorage.getItem(
+        "cc.microblock.betterncm.stylesnippets.snippetsConfig.relive-theme"
+    ) || "{}"
+);
 
-for (const setting in FORCE_SETTINGS) {
-    window.localStorage.setItem(setting, FORCE_SETTINGS[setting]);
-}
+if (styleSnippetConfig["@modify-play-page"])
+    window.localStorage.setItem("refined-now-playing-refined-control-bar", "false");
 
-plugin.onLoad(async function () {
-    if (loadedPlugins.StyleSnippet?.addExternalSnippet == undefined) {
-        async function addTips() {
+plugin.onLoad(async () => {
+    if (!loadedPlugins.StyleSnippet?.addExternalSnippet) {
+        setTimeout(async () => {
             (await betterncm.utils.waitForElement("header")).prepend(
                 dom("div", {
                     innerText:
@@ -26,9 +27,7 @@ plugin.onLoad(async function () {
                     },
                 })
             );
-        }
-
-        setTimeout(addTips, 1000);
+        }, 1000);
 
         return;
     }
@@ -39,8 +38,13 @@ plugin.onLoad(async function () {
         "relive-theme"
     );
 
-    let isDark = JSON.parse(window.localStorage.getItem("relive-theme-dark") || "false");
+    document.addEventListener("fullscreenchange", () => {
+        if (document.fullscreenElement) document.body.classList.add("fullscreen");
+        else document.body.classList.remove("fullscreen");
+    });
 
+    // light/dark theme switcher
+    let isDark = JSON.parse(window.localStorage.getItem("relive-theme-dark") || "false");
     function loadDark() {
         if (isDark) {
             document.body.classList.add("s-theme-white");
@@ -55,15 +59,7 @@ plugin.onLoad(async function () {
                 "orpheus://skin/pub/web/css/skin.ls.css";
         }
     }
-
     loadDark();
-
-    document.addEventListener("fullscreenchange", () => {
-        if (document.fullscreenElement) document.body.classList.add("fullscreen");
-        else document.body.classList.remove("fullscreen");
-    });
-
-    // light/dark theme switcher
     let lastSkinNode;
     new MutationObserver(async () => {
         let skinNode = document.querySelector(".m-tool > .skin");
