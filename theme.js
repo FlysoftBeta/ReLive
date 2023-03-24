@@ -6,8 +6,8 @@ for (const setting in FORCE_SETTINGS) {
     window.localStorage.setItem(setting, FORCE_SETTINGS[setting]);
 }
 
-plugin.onAllPluginsLoaded(async function (plugins) {
-    if (plugins.StyleSnippet?.addExternalSnippet == undefined) {
+plugin.onLoad(async function () {
+    if (loadedPlugins.StyleSnippet?.addExternalSnippet == undefined) {
         async function addTips() {
             (await betterncm.utils.waitForElement("header")).prepend(
                 dom("div", {
@@ -29,9 +29,11 @@ plugin.onAllPluginsLoaded(async function (plugins) {
         }
 
         setTimeout(addTips, 1000);
+
+        return;
     }
 
-    plugins.StyleSnippet.addExternalSnippet(
+    loadedPlugins.StyleSnippet.addExternalSnippet(
         await betterncm.fs.readFileText(this.pluginPath + "./theme.less"),
         "ReLiveTheme",
         "relive-theme"
