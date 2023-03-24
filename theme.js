@@ -58,17 +58,25 @@ plugin.onLoad(async function () {
 
     loadDark();
 
-    betterncm.utils.waitForElement(".m-tool > .skin").then((item) => {
-        item.addEventListener("click", (e) => {
+    document.addEventListener("fullscreenchange", () => {
+        if (document.fullscreenElement) document.body.classList.add("fullscreen");
+        else document.body.classList.remove("fullscreen");
+    });
+
+    // light/dark theme switcher
+    let lastSkinNode;
+    new MutationObserver(async () => {
+        let skinNode = document.querySelector(".m-tool > .skin");
+        if (!skinNode || skinNode == lastSkinNode) return;
+        lastSkinNode = skinNode;
+        skinNode.addEventListener("click", (e) => {
             isDark = !isDark;
             window.localStorage.setItem("relive-theme-dark", JSON.stringify(isDark));
             loadDark();
         });
-    });
-
-    document.addEventListener("fullscreenchange", () => {
-        if (document.fullscreenElement) document.body.classList.add("fullscreen");
-        else document.body.classList.remove("fullscreen");
+    }).observe(document.querySelector("html"), {
+        childList: true,
+        subtree: true,
     });
 
     // fullscreen popup fix

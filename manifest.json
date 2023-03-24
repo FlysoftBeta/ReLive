@@ -11,6 +11,7 @@
     "type": "theme",
     "requirements": ["RefinedNowPlaying", "StyleSnippet", "list-scroll-fix"],
     "loadAfter": ["StyleSnippet"],
+    "incompatible": ["light-dark-theme-switcher"],
     "injects": {
         "Main": [
             {
