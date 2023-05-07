@@ -4,8 +4,7 @@ let styleSnippetConfig = JSON.parse(
     ) || "{}"
 );
 
-if (styleSnippetConfig["@modify-play-page"])
-    window.localStorage.setItem("refined-now-playing-refined-control-bar", "false");
+window.localStorage.setItem("refined-now-playing-refined-control-bar", styleSnippetConfig["@modify-play-page"] == true && styleSnippetConfig["@modify-play-page"] == undefined ? "false" : "true");
 
 plugin.onAllPluginsLoaded(async function (plugins) {
     if (!plugins.StyleSnippet?.addExternalSnippet) {
